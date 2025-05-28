@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+CO:wght@100..400&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+
+:root {
+  /* ¿por qué creamos variables? facilita el manejo de los distintos elementos en luagr de usar hardcoding */
+  --button-width: 5vh;
+  --button-height: calc(var(--button-width) * .8);
+  /* esto no dejan de ser porcentajes del buttonWidth */
+  --rectangle-height: calc(var(--button-width) * .1);
+  --rectangle-radius: calc(var(--button-width) * .04);
+  --translate: calc(var(--button-width) * .17);
+  --transition: 0.65s;
+}
+
+body {
+  font-family: "Playwrite CO", sans-serif;
+  background-color: #F5E6D3;
+  width: 100%;
+}
+
+.burguerBtn {
+  position: relative;
+  width: var(--button-width);
+  height: var(--button-height);
+  border: 0;
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+.rectangle {
+  position: absolute;
+  height: var(--rectangle-height);
+  background: black;
+  border-radius: var(--rectangle-radius);
+  transition: transform var(--transition);
+}
+
+.rectangle--small {
+  width: calc(var(--button-width) / 2);
+}
+
+.rectangle--top {
+  top: 0;
+  left: 0;
+  transform-origin: top left;
+}
+
+.rectangle--middle {
+  top: 50%;
+  left: 0;
+  width: var(--button-width);
+  transform: translateY(-50%);
+}
+
+.rectangle--bottom {
+  bottom: 0;
+  right: 0;
+  transform-origin: bottom right;
+}
+
+.rectangle--top.open {
+  transform: translateX(var(--translate)) rotate(45deg);
+}
+
+.rectangle--middle.open {
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+.rectangle--bottom.open {
+  transform: translateX(calc(-1 * var(--translate))) rotate(45deg);
+  /* como es negativo, tenemos que multiplicar por -1 */
+}
