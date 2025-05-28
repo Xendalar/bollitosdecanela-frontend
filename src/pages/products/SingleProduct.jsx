@@ -2,7 +2,7 @@ import { use, useEffect } from "react";
 import { useLoaderData } from "react-router-dom"
 
 
-const singleProduct = () => {
+const SingleProduct = () => {
 
     const item = useLoaderData();
 
@@ -94,4 +94,4 @@ const singleProduct = () => {
     )
 }
 
-export default singleProduct
+export default SingleProduct
